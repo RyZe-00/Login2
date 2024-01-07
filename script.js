@@ -42,12 +42,7 @@ function customFacebookLogin() {
     if (response.authResponse) {
          console.log('Bienvenido!  Gracias por tu informacion.... ');
          FB.api('/me', {fields: 'name, email'}, function(response) {
-          if (response.email) {
             alert("'Bienvenido!  Gracias por tu informacion.... ' \nTu nombre es, " + response.name + ". \nTu email es " + response.email);
-          } else {
-            alert("'Bienvenido!  Gracias por tu informacion.... ' \nTu nombre es, " + response.name + ". \nTu email es " + response.email);
-            console.log('Correo electrónico no disponible');
-          }
          });
          
     } else { 
