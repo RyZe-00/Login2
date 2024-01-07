@@ -42,8 +42,13 @@ function customFacebookLogin() {
     if (response.authResponse) {
          console.log('Bienvenido!  Gracias por tu informacion.... ');
          FB.api('/me', {fields: 'name, email'}, function(response) {
-          alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
+          if (response.email) {
+            alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
+          } else {
+            console.log('Correo electrónico no disponible');
+          }
          });
+         window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran'
     } else { 
          console.log('Inicio de Sesion Cancelado'); }
   });
@@ -64,6 +69,8 @@ function handleCredentialResponse(response) {
     console.log("ID de usuario:", credential.id);
     console.log("Nombre:", credential.name);
     console.log("Email:", credential.email);
+
+    window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran'
   }
 }
 
