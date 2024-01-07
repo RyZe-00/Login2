@@ -1,7 +1,7 @@
 //Facebook
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '380895757815230',
+    appId      : '260158550205238',
     cookie     : true,
     xfbml      : true,
     version    : 'v18.0'
@@ -42,9 +42,13 @@ function customFacebookLogin() {
     if (response.authResponse) {
          console.log('Bienvenido!  Gracias por tu informacion.... ');
          FB.api('/me', {fields: 'name, email'}, function(response) {
-            alert("'Bienvenido!  Gracias por tu informacion.... ' \nTu nombre es, " + response.name + ". \nTu email es " + response.email);
+          if (response.email) {
+            alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
+          } else {
+            console.log('Correo electrónico no disponible');
+          }
          });
-         
+         window.location.href = 'https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran'
     } else { 
          console.log('Inicio de Sesion Cancelado'); }
   });
@@ -60,18 +64,6 @@ FB.api('/me', function(response) {
 function handleCredentialResponse(response) {
   if (response.credential) {
     var credential = response.credential;
-
-    // Muestra la información en una ventana emergente
-    alert("ID de usuario: " + credential.id + "\nNombre: " + credential.name + "\nEmail: " + credential.email);
-
-    // Abre una nueva ventana con la información del usuario
-    var userInfoWindow = window.open('', '_blank');
-    userInfoWindow.document.write('<html><body>');
-    userInfoWindow.document.write('<p>ID de usuario: ' + credential.id + '</p>');
-    userInfoWindow.document.write('<p>Nombre: ' + credential.name + '</p>');
-    userInfoWindow.document.write('<p>Email: ' + credential.email + '</p>');
-    userInfoWindow.document.write('</body></html>');
-    userInfoWindow.document.close();
 
     // Maneja la información de la credencial como desees
     console.log("ID de usuario:", credential.id);
