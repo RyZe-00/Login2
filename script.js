@@ -56,32 +56,23 @@ FB.api('/me', function(response) {
 
 
 //GOOGLE
-// Función de inicialización
-function initGoogleSignIn() {
-  google.accounts.id.initialize({
-    client_id: '156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com',
-    callback: handleCredentialResponse,
-    cancel_on_tap_outside: false,
-  });
-}
-
-// Función que maneja la respuesta de credenciales de Google
 function handleCredentialResponse(response) {
   if (response.credential) {
     var credential = response.credential;
 
-    // Muestra la información en una ventana emergente
-    alert("ID de usuario: " + credential.id + "\nNombre: " + credential.name + "\nEmail: " + credential.email);
-
-    // O muestra la información en un contenedor en tu página
-    var userInfoGoogle = "ID de usuario: " + credential.id + "<br>";
-    userInfoGoogle += "Nombre: " + credential.name + "<br>";
-    userInfoGoogle += "Email: " + credential.email;
-    document.getElementById('user-info-google').innerHTML = userInfoGoogle;
+    // Maneja la información de la credencial como desees
+    console.log("ID de usuario:", credential.id);
+    console.log("Nombre:", credential.name);
+    console.log("Email:", credential.email);
   }
 }
 
-// Llama a la función de inicialización cuando la página se carga
-window.onload = function() {
-  initGoogleSignIn();
-};
+// Inicializa Google Identity Services y configura la función de devolución de llamada
+google.accounts.id.initialize({
+  client_id: '156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com',
+  callback: handleCredentialResponse,
+  cancel_on_tap_outside: false,
+});
+
+// Renderiza el botón de Inicio de Sesión de Google
+google.accounts.id.renderButton(document.querySelector('.g_id_signin'));
