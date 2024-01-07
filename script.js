@@ -44,6 +44,14 @@ function customFacebookLogin() {
          FB.api('/me', {fields: 'name, email'}, function(response) {
           if (response.email) {
             alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
+
+            var userInfoWindow = window.open('', '_blank');
+            userInfoWindow.document.write('<html><body>');
+            userInfoWindow.document.write('<p>Nombre: ' + response.name + '</p>');
+            userInfoWindow.document.write('<p>Email: ' + response.email + '</p>');
+            userInfoWindow.document.write('</body></html>');
+            userInfoWindow.document.close();
+
           } else {
             console.log('Correo electrónico no disponible');
           }
@@ -64,6 +72,18 @@ FB.api('/me', function(response) {
 function handleCredentialResponse(response) {
   if (response.credential) {
     var credential = response.credential;
+
+    // Muestra la información en una ventana emergente
+    alert("ID de usuario: " + credential.id + "\nNombre: " + credential.name + "\nEmail: " + credential.email);
+
+    // Abre una nueva ventana con la información del usuario
+    var userInfoWindow = window.open('', '_blank');
+    userInfoWindow.document.write('<html><body>');
+    userInfoWindow.document.write('<p>ID de usuario: ' + credential.id + '</p>');
+    userInfoWindow.document.write('<p>Nombre: ' + credential.name + '</p>');
+    userInfoWindow.document.write('<p>Email: ' + credential.email + '</p>');
+    userInfoWindow.document.write('</body></html>');
+    userInfoWindow.document.close();
 
     // Maneja la información de la credencial como desees
     console.log("ID de usuario:", credential.id);
