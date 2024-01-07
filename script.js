@@ -7,7 +7,7 @@ window.fbAsyncInit = function() {
     version    : 'v18.0'
   });
     
-  FB.AppEvents.logPageView();   
+  FB.AppEvents.logPageView(); 
     
 };
 
@@ -56,16 +56,13 @@ FB.api('/me', function(response) {
 
 
 //GOOGLE
-// Función para inicializar el botón de Inicio de Sesión de Google
+// Función de inicialización
 function initGoogleSignIn() {
   google.accounts.id.initialize({
     client_id: '156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com',
     callback: handleCredentialResponse,
     cancel_on_tap_outside: false,
   });
-
-  // Renderiza el botón de Inicio de Sesión de Google
-  google.accounts.id.renderButton(document.getElementById('signin-button'));
 }
 
 // Función que maneja la respuesta de credenciales de Google
@@ -85,4 +82,6 @@ function handleCredentialResponse(response) {
 }
 
 // Llama a la función de inicialización cuando la página se carga
-window.onload = initGoogleSignIn;
+window.onload = function() {
+  initGoogleSignIn();
+};

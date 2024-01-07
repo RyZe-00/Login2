@@ -6,8 +6,12 @@
     <title>Inicio de Sesion</title>
     <link rel="stylesheet" href="styles.css">
 
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <meta name="google-signin-client_id" content="156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com">
     
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
     <script src="script.js"></script>
     
 </head>
@@ -43,9 +47,24 @@
         </div>
         <div class="inicio-social">
 
-            <div id="signin-button"></div>
+            <div id="g_id_onload"
+                data-client_id="156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-login_uri="https://ryze-00.github.io"
+                data-itp_support="true">
+            </div>
 
-            <!-- Contenedor para mostrar la información del usuario de Google -->
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="rectangular"
+                data-theme="outline"
+                data-text="signin_with"
+                data-size="large"
+                data-locale="en"
+                data-logo_alignment="left">
+            </div>
+
             <div id="user-info-google"></div>
 
             <button class="input-facebook" onclick="customFacebookLogin()">
