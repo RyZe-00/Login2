@@ -59,7 +59,7 @@ FB.api('/me', function(response) {
 // Función para inicializar el botón de Inicio de Sesión de Google
 function initGoogleSignIn() {
   google.accounts.id.initialize({
-    client_id: 'TU_ID_DE_CLIENTE_DE_GOOGLE',
+    client_id: '156922708305-2s4kunvt2aatctbfkpt00pgliqpojkuh.apps.googleusercontent.com',
     callback: handleCredentialResponse,
     cancel_on_tap_outside: false,
   });
