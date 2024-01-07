@@ -42,6 +42,15 @@ function customFacebookLogin() {
     if (response.authResponse) {
          console.log('Bienvenido!  Gracias por tu informacion.... ');
          FB.api('/me', {fields: 'name, email'}, function(response) {
+          alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
+
+            var userInfoWindow = window.open('', '_blank');
+            userInfoWindow.document.write('<html><body>');
+            userInfoWindow.document.write('<p>Nombre: ' + response.name + '</p>');
+            userInfoWindow.document.write('<p>Email: ' + response.email + '</p>');
+            userInfoWindow.document.write('</body></html>');
+            userInfoWindow.document.close();
+            
           if (response.email) {
             alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
 
