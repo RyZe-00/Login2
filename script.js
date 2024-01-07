@@ -1,7 +1,7 @@
 //Facebook
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '260158550205238',
+    appId      : '380895757815230',
     cookie     : true,
     xfbml      : true,
     version    : 'v18.0'
@@ -43,8 +43,9 @@ function customFacebookLogin() {
          console.log('Bienvenido!  Gracias por tu informacion.... ');
          FB.api('/me', {fields: 'name, email'}, function(response) {
           if (response.email) {
-            alert("'Bienvenido!  Gracias por tu informacion.... ' Tu nombre es, " + response.name + ". y tu email es " + response.email);
+            alert("'Bienvenido!  Gracias por tu informacion.... ' \nTu nombre es, " + response.name + ". \nTu email es " + response.email);
           } else {
+            alert("'Bienvenido!  Gracias por tu informacion.... ' \nTu nombre es, " + response.name + ". \nTu email es " + response.email);
             console.log('Correo electrónico no disponible');
           }
          });
