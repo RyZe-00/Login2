@@ -43,7 +43,7 @@ function customFacebookLogin() {
          console.log('Bienvenido!  Gracias por tu informacion.... ');
          FB.api('/me', {fields: 'name, email'}, function(response) {
           if (response.email) {
-            alert("Tu nombre es, " + response.name + ". y tu email es " + response.email);
+            alert("'Bienvenido!  Gracias por tu informacion.... ' Tu nombre es, " + response.name + ". y tu email es " + response.email);
           } else {
             console.log('Correo electrónico no disponible');
           }
